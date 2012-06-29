@@ -2,8 +2,8 @@
 these functions wrap django's url and patterns functions to allow the
 addition of view attributes
 """
-from django.conf.urls.defaults import patterns as django_patterns
-from django.conf.urls.defaults import url as django_url
+from django.conf.urls import patterns as django_patterns
+from django.conf.urls import url as django_url
 
 
 def url(regex, view, kwargs=None, name=None, prefix='', view_attrs=None):
