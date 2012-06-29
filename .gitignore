@@ -2,3 +2,6 @@
 *.py[oc]
 dist/*
 MANIFEST
+.coverage
+*.xml
+jenkins_reports/*

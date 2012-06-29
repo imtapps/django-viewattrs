@@ -1,0 +1,5 @@
+-r dev.txt
+coverage
+pep8
+pyflakes
+nosexcover
