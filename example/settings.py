@@ -2,6 +2,7 @@ from os.path import abspath, dirname, join, pardir
 
 PROJECT_DIR = abspath(join(dirname(__file__), pardir))
 
+SECRET_KEY = '=n@i1l$4yh+o%h26g8%8li=6huwmr3h4y=28mpnk3-fu8=_^7s'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
