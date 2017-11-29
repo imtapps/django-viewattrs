@@ -34,16 +34,24 @@ def _urls_list_recurse(url_item, view_attrs):
     parent view_attrs
     """
     if hasattr(url_item, 'url_patterns'):
-        for ptrn in url_item.url_patterns:
-            if getattr(ptrn, 'view_attrs', False):
-                new_attrs = view_attrs.copy()
-                new_attrs.update(ptrn.view_attrs)
-            else:
-                new_attrs = view_attrs
-            _urls_list_recurse(ptrn, new_attrs)
+        _add_attrs_to_url_patterns(url_item, view_attrs)
     else:
-        if getattr(url_item, 'callback', False):
-            _add_view_attrs(url_item.callback, view_attrs)
+        _add_attrs_to_callback(url_item, view_attrs)
+
+
+def _add_attrs_to_url_patterns(url_item, view_attrs):
+    for ptrn in url_item.url_patterns:
+        if getattr(ptrn, 'view_attrs', False):
+            new_attrs = view_attrs.copy()
+            new_attrs.update(ptrn.view_attrs)
+        else:
+            new_attrs = view_attrs
+        _urls_list_recurse(ptrn, new_attrs)
+
+
+def _add_attrs_to_callback(url_item, view_attrs):
+    if getattr(url_item, 'callback', False):
+        _add_view_attrs(url_item.callback, view_attrs)
 
 
 def _add_view_attrs(view, view_attrs):
