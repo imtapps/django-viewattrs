@@ -12,6 +12,10 @@ DATABASES = {
 
 PROJECT_APPS = ('viewattrs', )
 
-INSTALLED_APPS = ('django.contrib.auth', 'django.contrib.contenttypes', 'django_nose', ) + PROJECT_APPS
+INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django_nose',
+) + PROJECT_APPS
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'

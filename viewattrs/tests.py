@@ -66,9 +66,11 @@ class UrlFunctionTests(test.TestCase):
         patterns_3 = apply_view_attrs([url(*self.args, **kwargs)])
         patterns_2 = apply_view_attrs([url('^xxx$', include(patterns_3), view_attrs={'three': 333, 'four': 444})])
         patterns_1 = apply_view_attrs(
-            [url('^xxx$', include(patterns_2), view_attrs={'two': 22,
-                                                           'three': 33,
-                                                           'four': 44})]
+            [url('^xxx$', include(patterns_2), view_attrs={
+                'two': 22,
+                'three': 33,
+                'four': 44
+            })]
         )
         apply_view_attrs([url('^xxx$', include(patterns_1), view_attrs={'one': 1, 'two': 2, 'three': 3, 'four': 4})])
 
@@ -89,17 +91,22 @@ class UrlFunctionTests(test.TestCase):
         patterns_4 = apply_view_attrs([url('^xxx$', include(patterns_5))])
         patterns_3 = apply_view_attrs([url('^xxx$', include(patterns_6), view_attrs={'three': 333, 'four': 444})])
         patterns_2 = apply_view_attrs(
-            [url('^xxx$', include(patterns_3), view_attrs={'two': 22,
-                                                           'three': 33,
-                                                           'four': 44})]
+            [url('^xxx$', include(patterns_3), view_attrs={
+                'two': 22,
+                'three': 33,
+                'four': 44
+            })]
         )
         patterns_1 = apply_view_attrs([url('^xxx$', include(patterns_4))])
         apply_view_attrs(
             [
-                url('^xxx$', include(patterns_2), view_attrs={'one': 1,
-                                                              'two': 2,
-                                                              'three': 3,
-                                                              'four': 4}), url('^xxx$', include(patterns_1))
+                url('^xxx$', include(patterns_2), view_attrs={
+                    'one': 1,
+                    'two': 2,
+                    'three': 3,
+                    'four': 4
+                }),
+                url('^xxx$', include(patterns_1))
             ]
         )
 
@@ -126,9 +133,12 @@ class UrlFunctionTests(test.TestCase):
         patterns_2 = apply_view_attrs([url('^xxx$', include(patterns_4))])
         patterns_1 = apply_view_attrs(
             [
-                url('^xxx$', include(patterns_3), view_attrs={'two': 22,
-                                                              'three': 33,
-                                                              'four': 44}), url('^xxx$', include(patterns_2))
+                url('^xxx$', include(patterns_3), view_attrs={
+                    'two': 22,
+                    'three': 33,
+                    'four': 44
+                }),
+                url('^xxx$', include(patterns_2))
             ]
         )
         apply_view_attrs([url('^xxx$', include(patterns_1), view_attrs={'one': 1, 'two': 2, 'three': 3, 'four': 4})])
@@ -155,14 +165,19 @@ class UrlFunctionTests(test.TestCase):
         patterns_3 = apply_view_attrs([url('^xxx$', include(patterns_4))])
         patterns_2 = apply_view_attrs(
             [
-                url('^xxx$', include(patterns_6), view_attrs={'three': 333,
-                                                              'four': 444}), url('^xxx$', include(patterns_3))
+                url('^xxx$', include(patterns_6), view_attrs={
+                    'three': 333,
+                    'four': 444
+                }),
+                url('^xxx$', include(patterns_3))
             ]
         )
         patterns_1 = apply_view_attrs(
-            [url('^xxx$', include(patterns_2), view_attrs={'two': 22,
-                                                           'three': 33,
-                                                           'four': 44})]
+            [url('^xxx$', include(patterns_2), view_attrs={
+                'two': 22,
+                'three': 33,
+                'four': 44
+            })]
         )
         apply_view_attrs([url('^xxx$', include(patterns_1), view_attrs={'one': 1, 'two': 2, 'three': 3, 'four': 4})])
 
@@ -188,9 +203,11 @@ class UrlFunctionTests(test.TestCase):
         patterns_3 = apply_view_attrs([url(*self.args, **kwargs), url('^xxx$', include(patterns_4))])
         patterns_2 = apply_view_attrs([url('^xxx$', include(patterns_3), view_attrs={'three': 333, 'four': 444})])
         patterns_1 = apply_view_attrs(
-            [url('^xxx$', include(patterns_2), view_attrs={'two': 22,
-                                                           'three': 33,
-                                                           'four': 44})]
+            [url('^xxx$', include(patterns_2), view_attrs={
+                'two': 22,
+                'three': 33,
+                'four': 44
+            })]
         )
         apply_view_attrs([url('^xxx$', include(patterns_1), view_attrs={'one': 1, 'two': 2, 'three': 3, 'four': 4})])
 
